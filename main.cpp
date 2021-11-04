@@ -1,10 +1,11 @@
 #include <iostream>
+#include "Player.h"
 
 using namespace std;
 
 int main(){
 
- cout << "OLEH PIDORAS!" << endl; 
+cout << "Hello" << endl;
 
  return 0;
 }
