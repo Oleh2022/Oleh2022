@@ -20,7 +20,7 @@ int main(){
     int current_process_settings {-1};
     int current_process_start {-1};
 
-    short number_of_years {65};
+    short number_of_years {0};
 
     Vector2 position[number_of_buttons] = {0};
     for(int i = 0; i < number_of_buttons; i++){
@@ -67,9 +67,7 @@ int main(){
     Image Logo = LoadImage("Icon.png");
     SetWindowIcon(Logo);
 
-    Vector2 years_position;
-    years_position.x = 1500;
-    years_position.y = 1000;
+   
 
     Vector2 start_text_position[number_of_start];
     for(int i = 0; i < number_of_settings - 1; i++){
@@ -86,7 +84,15 @@ int main(){
     setting_buttons_position[i].x = 500;
     setting_buttons_position[i].y = (float)(300 + 70*i);
     }
- 
+
+    Vector2 years_position;
+    years_position.x = 1750;
+    years_position.y = 30;
+    
+    Vector2 years_text_position;
+    years_text_position.x = 1530;
+    years_text_position.y = 30;
+
    //Rectangle switch_audio = (Rectangle){};
 
     Font myfont = LoadFont("AllenoireFont.otf");
@@ -191,6 +197,10 @@ for(int i = 0; i < number_of_start; i++){
    if(IsKeyPressed(KEY_ESCAPE)){
     CurrentScreen = Menu_Screen;
    }
+
+   if(IsKeyPressed(KEY_P)){
+       number_of_years++;
+   }
     break;    
 
 default: break;
@@ -211,6 +221,8 @@ default: break;
         DrawRectangleRec(buttons[i], BLANK);
         DrawTextEx(myfont, text[i], position[i], (i == mouse_touch) ? 35 : 30, 0.0, PURPLE);
         }
+
+        
         
         break;
 
@@ -219,7 +231,8 @@ default: break;
         DrawTexture(background, 0, 0, WHITE);
         DrawTexture(StartMenu, 1420, 0, WHITE);
         DrawTexture(StartMenu1, 0, 0, WHITE);
-        DrawTextEx(myfont, TextFormat("%d", number_of_years), years_position, 30, 0, PURPLE);
+        DrawTextEx(myfont, TextFormat("%d", number_of_years), years_position, 40, 0, PURPLE);
+        DrawTextEx(myfont, "Your age: ", years_text_position, 40, 0, PURPLE);
         
         
 
